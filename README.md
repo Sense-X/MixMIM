@@ -1,6 +1,6 @@
 ## Pytorch implementation of [MixMAE](https://arxiv.org/abs/2205.13137) (CVPR 2023)
 
-![tenser](figures/mixmim.png)
+![tenser](figures/mixmae.png)
 
 This repo is the offcial implementation of the paper [MixMAE: Mixed and Masked Autoencoder for Efficient Pretraining of Hierarchical Vision Transformers](https://arxiv.org/abs/2205.13137)
 
