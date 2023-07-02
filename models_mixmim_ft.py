@@ -303,11 +303,41 @@ def mixmim_base(**kwargs):
 
 
 @register_model
+def mixmim_base_384(**kwargs):
+    default_args = dict(
+        img_size=384, patch_size=4, in_chans=3, num_classes=1000,
+        embed_dim=128, depths=[2, 2, 18, 2], num_heads=[4, 8, 16, 32],
+        window_size=[16, 16, 24, 12], mlp_ratio=4, qkv_bias=True, qk_scale=None,
+        drop_rate=0.0, drop_path_rate=0.0, 
+        patch_norm=True, use_checkpoint=False,
+    )
+    default_args.update(**kwargs)
+    model = MixMIM(**default_args)
+
+    return model
+
+
+@register_model
 def mixmim_large(**kwargs):
     default_args = dict(
         img_size=224, patch_size=4, in_chans=3, num_classes=1000,
         embed_dim=192, depths=[2, 2, 18, 2], num_heads=[6, 12, 24, 48],
         window_size=[14, 14, 14, 7], mlp_ratio=4, qkv_bias=True, qk_scale=None,
+        drop_rate=0.0, drop_path_rate=0.0, ape=True,
+        patch_norm=True, use_checkpoint=False,
+    )
+    default_args.update(**kwargs)
+    model = MixMIM(**default_args)
+
+    return model
+
+
+@register_model
+def mixmim_large_384(**kwargs):
+    default_args = dict(
+        img_size=384, patch_size=4, in_chans=3, num_classes=1000,
+        embed_dim=192, depths=[2, 2, 18, 2], num_heads=[6, 12, 24, 48],
+        window_size=[16, 16, 24, 12], mlp_ratio=4, qkv_bias=True, qk_scale=None,
         drop_rate=0.0, drop_path_rate=0.0, ape=True,
         patch_norm=True, use_checkpoint=False,
     )
